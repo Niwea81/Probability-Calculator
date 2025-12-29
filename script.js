@@ -20,26 +20,23 @@ function erf(x) {
 }
 
 function calculate() {
-    const price  = parseFloat(document.getElementById("price").value);
-    const days   = parseFloat(document.getElementById("days").value);
-    const volPct = parseFloat(document.getElementById("vol").value);
-    const target = parseFloat(document.getElementById("target").value);
+    const price  = Number(document.getElementById("price").value);
+    const days   = Number(document.getElementById("days").value);
+    const volPct = Number(document.getElementById("vol").value);
+    const target = Number(document.getElementById("target").value);
 
     if (!price || !days || !volPct || !target) {
-        alert("Please fill all fields");
+        alert("Preencha todos os campos");
         return;
     }
 
     const T = days / 252;
     const vol = volPct / 100;
-
     const sigma = vol * Math.sqrt(T);
 
-    const z = (Math.log(target / price)) / sigma;
-
+    const z = Math.log(target / price) / sigma;
     const probability = 1 - normalCDF(z);
 
     document.getElementById("result").innerText =
         (probability * 100).toFixed(2) + "%";
 }
-
