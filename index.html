@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Probability Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Probability Calculator</h1>
+
+<div class="calculator">
+
+    <div class="row">
+        <label>Current Price</label>
+        <input type="number" id="price" step="0.01">
+    </div>
+
+    <div class="row">
+        <label>Days Ahead</label>
+        <input type="number" id="days">
+    </div>
+
+    <div class="row">
+        <label>Future Volatility (%)</label>
+        <input type="number" id="vol" step="0.01">
+    </div>
+
+    <div class="row">
+        <label>Target Price</label>
+        <input type="number" id="target" step="0.01">
+    </div>
+
+    <button onclick="calculate()">GO!</button>
+
+    <div class="result">
+        Probability of reaching target:
+        <span id="result">--</span>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
 
